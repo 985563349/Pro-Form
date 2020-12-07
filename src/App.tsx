@@ -31,6 +31,22 @@ const App = () => {
           />
           <ProFormSwitch name="disable" label="是否启用" />
           <ProFormCheckbox name="checked" label="是否选择" />
+          <ProFormCheckbox.Group
+            label="工作日"
+            name="days"
+            fieldProps={{
+              options: [
+                {
+                  label: '周一',
+                  value: 1,
+                },
+                {
+                  label: '周二',
+                  value: 2,
+                },
+              ],
+            }}
+          />
         </ProForm.Group>
 
         <Button onClick={submit}>submit</Button>
