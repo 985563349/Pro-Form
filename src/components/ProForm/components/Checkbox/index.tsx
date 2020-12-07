@@ -1,22 +1,22 @@
 import { FunctionComponent } from 'react';
 import { Checkbox } from 'antd';
+import { CheckboxProps } from 'antd/lib/checkbox';
 
-import ProFormItem from '../../FormItem';
+import ProFormItem, { ProFormItemProps } from '../../FormItem';
 import ProFormCheckboxGroup from '../CheckboxGroup';
 
-export interface ProFormCheckboxProps {
-  label: string;
-  name: string;
+export interface ProFormCheckboxProps extends ProFormItemProps {
+  fieldProps?: CheckboxProps;
 }
 
 const ProFormCheckbox: FunctionComponent<ProFormCheckboxProps> & {
   Group: typeof ProFormCheckboxGroup;
 } = (props) => {
-  const { label, name } = props;
+  const { fieldProps, ...formProps } = props;
 
   return (
-    <ProFormItem label={label} name={name} valuePropName="checked">
-      <Checkbox />
+    <ProFormItem {...formProps} valuePropName="checked">
+      <Checkbox {...fieldProps} />
     </ProFormItem>
   );
 };

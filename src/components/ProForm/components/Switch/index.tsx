@@ -1,19 +1,19 @@
 import { FunctionComponent } from 'react';
 import { Switch } from 'antd';
+import { SwitchProps } from 'antd/lib/switch';
 
-import ProFormItem from '../../FormItem';
+import ProFormItem, { ProFormItemProps } from '../../FormItem';
 
-export interface ProFormSwitchProps {
-  label: string;
-  name: string;
+export interface ProFormSwitchProps extends ProFormItemProps {
+  fieldProps?: SwitchProps;
 }
 
 const ProFormSwitch: FunctionComponent<ProFormSwitchProps> = (props) => {
-  const { label, name } = props;
+  const { fieldProps, ...formProps } = props;
 
   return (
-    <ProFormItem label={label} name={name} valuePropName="checked">
-      <Switch />
+    <ProFormItem valuePropName="checked" {...formProps}>
+      <Switch {...fieldProps} />
     </ProFormItem>
   );
 };

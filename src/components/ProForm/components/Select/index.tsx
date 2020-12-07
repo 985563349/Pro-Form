@@ -1,24 +1,20 @@
-import { FunctionComponent, ReactNode } from 'react';
+import { FunctionComponent } from 'react';
 import { Select } from 'antd';
+import { SelectProps } from 'antd/lib/select';
 
-import ProFormItem from '../../FormItem';
+import ProFormItem, { ProFormItemProps } from '../../FormItem';
 
-export interface ProFormSelectProps {
-  label?: ReactNode;
-  name: string;
-  placeholder?: string;
-  options?: Array<{ label: ReactNode; value: any }>;
-  fieldProps?: {
-    onChange: () => void;
-  };
+export interface ProFormSelectProps extends ProFormItemProps {
+  options: any[];
+  fieldProps?: SelectProps<any>;
 }
 
 const ProFormSelect: FunctionComponent<ProFormSelectProps> = (props) => {
-  const { label, name, placeholder, options, fieldProps } = props;
+  const { fieldProps, options, ...formProps } = props;
 
   return (
-    <ProFormItem label={label} name={name}>
-      <Select {...fieldProps} placeholder={placeholder}>
+    <ProFormItem {...formProps}>
+      <Select {...fieldProps}>
         {options?.map(({ label, value }) => (
           <Select.Option key={value} value={value}>
             {label}
@@ -27,10 +23,6 @@ const ProFormSelect: FunctionComponent<ProFormSelectProps> = (props) => {
       </Select>
     </ProFormItem>
   );
-};
-
-ProFormSelect.defaultProps = {
-  placeholder: '请选择',
 };
 
 export default ProFormSelect;

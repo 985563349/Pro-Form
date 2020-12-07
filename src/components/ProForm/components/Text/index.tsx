@@ -1,27 +1,21 @@
-import { FunctionComponent, ReactNode } from 'react';
+import { FunctionComponent } from 'react';
 import { Input } from 'antd';
+import { InputProps } from 'antd/lib/input';
 
-import ProFormItem from '../../FormItem';
+import ProFormItem, { ProFormItemProps } from '../../FormItem';
 
-export interface ProFormTextProps {
-  label?: ReactNode;
-  name: string;
-  placeholder?: string;
-  fieldProps?: {};
+export interface ProFormTextProps extends ProFormItemProps {
+  fieldProps?: InputProps;
 }
 
 const ProFormText: FunctionComponent<ProFormTextProps> = (props) => {
-  const { label, name, placeholder, fieldProps } = props;
+  const { fieldProps, ...formProps } = props;
 
   return (
-    <ProFormItem label={label} name={name}>
-      <Input {...fieldProps} placeholder={placeholder} />
+    <ProFormItem {...formProps}>
+      <Input {...fieldProps} />
     </ProFormItem>
   );
-};
-
-ProFormText.defaultProps = {
-  placeholder: '请输入',
 };
 
 export default ProFormText;
