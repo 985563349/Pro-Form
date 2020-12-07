@@ -1,5 +1,10 @@
-import ProForm, { ProFormText, ProFormSelect } from './components/ProForm';
 import { Button } from 'antd';
+
+import ProForm, {
+  ProFormText,
+  ProFormSelect,
+  ProFormSwitch,
+} from './components/ProForm';
 
 const App = () => {
   const [form] = ProForm.useForm<{ username: string; password: string }>();
@@ -23,6 +28,7 @@ const App = () => {
               { label: '女', value: '0' },
             ]}
           />
+          <ProFormSwitch name="disable" label="是否启用" />
         </ProForm.Group>
 
         <Button onClick={submit}>submit</Button>
