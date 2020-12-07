@@ -5,6 +5,7 @@ import ProForm, {
   ProFormSelect,
   ProFormSwitch,
   ProFormCheckbox,
+  ProFormDateRangePicker,
 } from './components/ProForm';
 
 const App = () => {
@@ -47,6 +48,7 @@ const App = () => {
               ],
             }}
           />
+          <ProFormDateRangePicker label="时间范围" name="date" />
         </ProForm.Group>
 
         <Button onClick={submit}>submit</Button>
