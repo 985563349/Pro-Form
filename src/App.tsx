@@ -4,6 +4,7 @@ import ProForm, {
   ProFormText,
   ProFormSelect,
   ProFormSwitch,
+  ProFormCheckbox,
 } from './components/ProForm';
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
             ]}
           />
           <ProFormSwitch name="disable" label="是否启用" />
+          <ProFormCheckbox name="checked" label="是否选择" />
         </ProForm.Group>
 
         <Button onClick={submit}>submit</Button>
