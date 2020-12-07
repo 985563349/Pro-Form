@@ -20,18 +20,20 @@ const App = () => {
     <div className="App">
       <ProForm form={form}>
         <ProForm.Group gutter={24} span={8}>
-          <ProFormText name="username" label="username" />
-          <ProFormText name="password" label="password" />
+          <ProFormText label="username" name="username" />
+          <ProFormText label="password" name="password" type="password" />
+          <ProFormText label="textarea" name="area" type="textarea" />
+          <ProFormText label="textarea" name="area" />
           <ProFormSelect
-            name="gender"
             label="gender"
+            name="gender"
             options={[
               { label: '男', value: '1' },
               { label: '女', value: '0' },
             ]}
           />
-          <ProFormSwitch name="disable" label="是否启用" />
-          <ProFormCheckbox name="checked" label="是否选择" />
+          <ProFormSwitch label="是否启用" name="disable" />
+          <ProFormCheckbox label="是否选择" name="checked" />
           <ProFormCheckbox.Group
             label="工作日"
             name="days"
