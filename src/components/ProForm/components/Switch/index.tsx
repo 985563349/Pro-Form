@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { Switch } from 'antd';
 
-import ProFormItem from '../FormItem';
+import ProFormItem from '../../FormItem';
 
 export interface ProFormSwitchProps {
   label: string;

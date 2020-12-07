@@ -1,7 +1,7 @@
 import ProForm, { ProFormProps } from './Form';
-import ProFormText from './Text';
-import ProFormSelect from './Select';
-import ProFormSwitch from './Switch';
+import ProFormText from './components/Text';
+import ProFormSelect from './components/Select';
+import ProFormSwitch from './components/Switch';
 
 export type { ProFormProps };
 

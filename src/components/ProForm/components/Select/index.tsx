@@ -1,7 +1,7 @@
 import { FunctionComponent, ReactNode } from 'react';
 import { Select } from 'antd';
 
-import ProFormItem from '../FormItem';
+import ProFormItem from '../../FormItem';
 
 export interface ProFormSelectProps {
   label?: ReactNode;
