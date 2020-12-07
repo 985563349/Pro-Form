@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 import { Select } from 'antd';
 import { SelectProps } from 'antd/lib/select';
 
-import ProFormItem, { ProFormItemProps } from '../../FormItem';
+import ProFormItem, { ProFormItemProps } from '../FormItem';
 
 export interface ProFormSelectProps extends ProFormItemProps {
   options: any[];

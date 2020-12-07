@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 import { Form } from 'antd';
 import { FormProps } from 'antd/lib/form';
 
-import ProFormGroup from '../Group';
+import ProFormGroup from '../layouts/Group';
 
 export interface ProFormProps extends FormProps {}
 
