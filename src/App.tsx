@@ -54,6 +54,21 @@ const App = () => {
         </ProForm.Group>
 
         <Button onClick={submit}>submit</Button>
+
+        <ProForm.Group
+          gutter={24}
+          span={8}
+          xs={8}
+          sm={8}
+          md={8}
+          lg={8}
+          xl={8}
+          xxl={8}
+        >
+          <ProFormText label="username" name="username" />
+          <ProFormText label="password" name="password" type="password" />
+          {/* <ProFormText label="textarea" name="area" type="textarea" /> */}
+        </ProForm.Group>
       </ProForm>
     </div>
   );
