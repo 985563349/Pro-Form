@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 import { Switch } from 'antd';
 import { SwitchProps } from 'antd/lib/switch';
 
-import ProFormItem, { ProFormItemProps } from '../FormItem';
+import ProFormItem, { ProFormItemProps } from '../../FormItem';
 
 export interface ProFormSwitchProps extends ProFormItemProps {
   fieldProps?: SwitchProps;
