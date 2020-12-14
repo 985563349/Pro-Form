@@ -13,9 +13,9 @@ export interface ProFormTextProps extends ProFormItemProps {
 const { Password, TextArea } = Input;
 
 const InputConfig = {
-  text: (props: InputProps) => <Input {...props} />,
-  password: (props: PasswordProps) => <Password {...props} />,
-  textarea: (props: TextAreaProps) => <TextArea {...props} />,
+  text: Input,
+  password: Password,
+  textarea: TextArea,
 };
 
 const ProFormText: FunctionComponent<ProFormTextProps> = (props) => {
