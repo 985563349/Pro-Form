@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 import { DatePicker } from 'antd';
 import { RangePickerProps } from 'antd/lib/date-picker';
 
-import ProFormItem, { ProFormItemProps } from '../../FormItem';
+import ProFormItem, { ProFormItemProps } from '../FormItem';
 
 export interface ProFormDateRangePickerProps extends ProFormItemProps {
   fieldProps?: RangePickerProps;

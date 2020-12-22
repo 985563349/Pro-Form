@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 import { Input } from 'antd';
 import { InputProps, PasswordProps, TextAreaProps } from 'antd/lib/input';
 
-import ProFormItem, { ProFormItemProps } from '../../FormItem';
+import ProFormItem, { ProFormItemProps } from '../FormItem';
 
 export interface ProFormTextProps extends ProFormItemProps {
   type?: 'text' | 'password' | 'textarea';

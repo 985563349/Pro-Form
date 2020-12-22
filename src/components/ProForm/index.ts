@@ -1,4 +1,4 @@
-import ProForm, { ProFormProps } from './Form';
+import ProForm, { ProFormProps } from './components/Form';
 import ProFormText from './components/Text';
 import ProFormSelect from './components/Select';
 import ProFormSwitch from './components/Switch';
