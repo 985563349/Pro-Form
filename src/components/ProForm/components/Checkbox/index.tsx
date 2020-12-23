@@ -12,11 +12,11 @@ export interface ProFormCheckboxProps extends ProFormItemProps {
 const ProFormCheckbox: FunctionComponent<ProFormCheckboxProps> & {
   Group: typeof ProFormCheckboxGroup;
 } = (props) => {
-  const { fieldProps, ...formProps } = props;
+  const { children, fieldProps, ...formProps } = props;
 
   return (
     <ProFormItem {...formProps} valuePropName="checked">
-      <Checkbox {...fieldProps} />
+      <Checkbox {...fieldProps} children={children} />
     </ProFormItem>
   );
 };

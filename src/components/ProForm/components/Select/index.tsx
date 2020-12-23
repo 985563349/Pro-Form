@@ -4,18 +4,22 @@ import { SelectProps, OptionProps } from 'antd/lib/select';
 
 import ProFormItem, { ProFormItemProps } from '../FormItem';
 
-export interface ProFormSelectProps extends ProFormItemProps {
+type ProFormSelectEmitProps = Pick<SelectProps<any>, 'onChange'>;
+
+export interface ProFormSelectProps
+  extends ProFormItemProps,
+    ProFormSelectEmitProps {
   options: Omit<OptionProps, 'children'>[];
   placeholder?: string;
   fieldProps?: SelectProps<any>;
 }
 
 const ProFormSelect: FunctionComponent<ProFormSelectProps> = (props) => {
-  const { options, placeholder, fieldProps, ...formProps } = props;
+  const { options, placeholder, fieldProps, onChange, ...formProps } = props;
 
   return (
     <ProFormItem {...formProps}>
-      <Select {...fieldProps} placeholder={placeholder}>
+      <Select {...fieldProps} placeholder={placeholder} onChange={onChange}>
         {options?.map(({ label, value, ...props }) => (
           <Select.Option {...props} key={value} value={value}>
             {label}

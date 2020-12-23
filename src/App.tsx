@@ -9,67 +9,47 @@ import ProForm, {
 } from './components/ProForm';
 
 const App = () => {
-  const [form] = ProForm.useForm<{ username: string; password: string }>();
-
-  const submit = async () => {
-    const data = await form.getFieldsValue();
-    console.log(data);
-  };
-
   return (
-    <div className="App">
-      <ProForm form={form}>
-        <ProForm.Group gutter={24} span={8}>
-          <ProFormText label="username" name="username" />
+    <div className="App" style={{ padding: '22px' }}>
+      <section style={{ marginBottom: '22px' }}>
+        <h1>Basic Form</h1>
+
+        <ProForm style={{ width: '400px' }}>
+          <ProFormText label="email" name="email" />
           <ProFormText label="password" name="password" type="password" />
-          <ProFormText label="textarea" name="area" type="textarea" />
-          <ProFormText label="textarea" name="area" />
-          <ProFormSelect
-            label="gender"
-            name="gender"
-            options={[
-              { label: '男', value: '1' },
-              { label: '女', value: '0' },
-            ]}
-          />
-          <ProFormSwitch label="是否启用" name="disable" />
-          <ProFormCheckbox label="是否选择" name="checked" />
-          <ProFormCheckbox.Group
-            label="工作日"
-            name="days"
-            fieldProps={{
-              options: [
+          <ProFormCheckbox name="remember">remember me</ProFormCheckbox>
+          <Button type="primary" htmlType="submit">
+            submit
+          </Button>
+        </ProForm>
+      </section>
+
+      <section>
+        <h1>Grid From</h1>
+
+        <ProForm labelCol={{ span: 4 }}>
+          <ProForm.Group span={8} gutter={20}>
+            <ProFormText label="username" name="username" />
+            <ProFormText label="password" name="password" />
+            <ProFormText label="email" name="email" />
+            <ProFormSelect
+              label="gender"
+              name="gender"
+              options={[
                 {
-                  label: '周一',
+                  label: 'male',
                   value: 1,
                 },
                 {
-                  label: '周二',
-                  value: 2,
+                  label: 'female',
+                  value: 0,
                 },
-              ],
-            }}
-          />
-          <ProFormDateRangePicker label="时间范围" name="date" />
-        </ProForm.Group>
-
-        <Button onClick={submit}>submit</Button>
-
-        <ProForm.Group
-          gutter={24}
-          span={8}
-          xs={8}
-          sm={8}
-          md={8}
-          lg={8}
-          xl={8}
-          xxl={8}
-        >
-          <ProFormText label="username" name="username" />
-          <ProFormText label="password" name="password" type="password" />
-          {/* <ProFormText label="textarea" name="area" type="textarea" /> */}
-        </ProForm.Group>
-      </ProForm>
+              ]}
+              onChange={(...res) => console.log(res)}
+            />
+          </ProForm.Group>
+        </ProForm>
+      </section>
     </div>
   );
 };
