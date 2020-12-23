@@ -16,7 +16,7 @@ const App = () => {
 
         <ProForm style={{ width: '400px' }}>
           <ProFormText label="email" name="email" />
-          <ProFormText label="password" name="password" type="password" />
+          <ProFormText.Password label="password" name="password" />
           <ProFormCheckbox name="remember">remember me</ProFormCheckbox>
           <Button type="primary" htmlType="submit">
             submit
