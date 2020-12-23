@@ -2,18 +2,15 @@ import React, { FunctionComponent } from 'react';
 import { Col, Row } from 'antd';
 import { ColProps } from 'antd/lib/col';
 
-type ColPropsPick = Pick<
-  ColProps,
-  'span' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
->;
-
 type Map<T> = {
   [P in keyof T]: T[P] | T[P][];
 };
 
-type ColPropsMap = Map<ColPropsPick>;
+type ProFormGroupColProps = Map<
+  Pick<ColProps, 'span' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'>
+>;
 
-export interface ProFormGroupProps extends ColPropsMap {
+export interface ProFormGroupProps extends ProFormGroupColProps {
   gutter?: number;
 }
 
@@ -21,6 +18,18 @@ const ProFormGroup: FunctionComponent<ProFormGroupProps> = (props) => {
   const { gutter, span, xs, sm, md, lg, xl, xxl, children } = props;
 
   const isArray = Array.isArray;
+  const length = React.Children.count(children);
+
+  // FIXME: 我也不知道这是什么鬼，等后续优化吧。
+  const [colSpan, colXs, colSm, colMd, colLg, colXl, colXxl] = [
+    span,
+    xs,
+    sm,
+    md,
+    lg,
+    xl,
+    xxl,
+  ].map((value) => (isArray(value) ? value : new Array(length).fill(value)));
 
   return (
     <div className="pro-form-group">
@@ -28,13 +37,13 @@ const ProFormGroup: FunctionComponent<ProFormGroupProps> = (props) => {
         {React.Children.map(children, (Child, index) =>
           Child ? (
             <Col
-              span={isArray(span) ? span[index] : span}
-              xs={isArray(xs) ? xs[index] : xs}
-              sm={isArray(sm) ? sm[index] : sm}
-              md={isArray(md) ? md[index] : md}
-              lg={isArray(lg) ? lg[index] : lg}
-              xl={isArray(xl) ? xl[index] : xl}
-              xxl={isArray(xxl) ? xxl[index] : xxl}
+              span={colSpan[index]}
+              xs={colXs[index]}
+              sm={colSm[index]}
+              md={colMd[index]}
+              lg={colLg[index]}
+              xl={colXl[index]}
+              xxl={colXxl[index]}
             >
               {Child}
             </Col>
