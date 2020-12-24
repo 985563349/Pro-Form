@@ -1,5 +1,3 @@
-import { Button, Space } from 'antd';
-
 import ProForm, {
   ProFormText,
   ProFormSelect,
@@ -12,17 +10,6 @@ import ProForm, {
 import './App.css';
 
 const App = () => {
-  const [form] = ProForm.useForm();
-
-  const handleSubmit = async () => {
-    const values = await form.validateFields();
-    console.log(values);
-  };
-
-  const handleReset = () => {
-    form.resetFields();
-  };
-
   return (
     <div className="app">
       <section className="module">
@@ -32,9 +19,6 @@ const App = () => {
           <ProFormText label="email" name="email" />
           <ProFormText.Password label="password" name="password" />
           <ProFormCheckbox name="remember">remember me</ProFormCheckbox>
-          <Button type="primary" htmlType="submit">
-            submit
-          </Button>
         </ProForm>
       </section>
 
@@ -70,8 +54,10 @@ const App = () => {
 
         <ProForm
           style={{ width: '50%' }}
-          form={form}
           initialValues={{ input: 'input' }}
+          onFinish={(values) => {
+            console.log(values);
+          }}
         >
           <ProFormText
             label="input"
@@ -95,9 +81,9 @@ const App = () => {
           >
             checkbox
           </ProFormCheckbox>
-          <ProFormRadio label="radio" name="radio" rules={[{ required: true }]}>
+          {/* <ProFormRadio label="radio" name="radio" rules={[{ required: true }]}>
             radio
-          </ProFormRadio>
+          </ProFormRadio> */}
           <ProFormRadio.Group
             label="radioGroup"
             name="radioGroup"
@@ -168,13 +154,6 @@ const App = () => {
             name="textarea"
             rules={[{ required: true }]}
           />
-
-          <Space>
-            <Button type="primary" htmlType="submit" onClick={handleSubmit}>
-              submit
-            </Button>
-            <Button onClick={handleReset}>reset</Button>
-          </Space>
         </ProForm>
       </section>
     </div>
