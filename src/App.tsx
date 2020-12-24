@@ -4,6 +4,7 @@ import ProForm, {
   ProFormText,
   ProFormSelect,
   ProFormCheckbox,
+  ProFormRadio,
   ProFormSwitch,
   ProFormDateRangePicker,
 } from './components/ProForm';
@@ -94,7 +95,48 @@ const App = () => {
           >
             checkbox
           </ProFormCheckbox>
-
+          <ProFormRadio label="radio" name="radio" rules={[{ required: true }]}>
+            radio
+          </ProFormRadio>
+          <ProFormRadio.Group
+            label="radioGroup"
+            name="radioGroup"
+            options={[
+              {
+                label: 'radio0',
+                value: 0,
+              },
+              {
+                label: 'radio1',
+                value: 1,
+              },
+              {
+                label: 'radio2',
+                value: 2,
+              },
+            ]}
+            rules={[{ required: true }]}
+          />
+          <ProFormRadio.Group
+            label="radioGroupButton"
+            name="radioGroupButton"
+            options={[
+              {
+                label: 'radioButton0',
+                value: 0,
+              },
+              {
+                label: 'radioButton1',
+                value: 1,
+              },
+              {
+                label: 'radioButton2',
+                value: 2,
+              },
+            ]}
+            optionType="button"
+            rules={[{ required: true }]}
+          />
           {/*
             TODO: 添加grid布局配置
           */}
@@ -118,6 +160,12 @@ const App = () => {
           <ProFormDateRangePicker
             label="time"
             name="time"
+            rules={[{ required: true }]}
+          />
+
+          <ProFormText.TextArea
+            label="textarea"
+            name="textarea"
             rules={[{ required: true }]}
           />
 

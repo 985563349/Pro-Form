@@ -3,6 +3,7 @@ import ProFormText from './components/Text';
 import ProFormSelect from './components/Select';
 import ProFormSwitch from './components/Switch';
 import ProFormCheckbox from './components/Checkbox';
+import ProFormRadio from './components/Radio';
 import ProFormDateRangePicker from './components/DateRangePicker';
 
 export type { ProFormProps };
@@ -12,6 +13,7 @@ export {
   ProFormSelect,
   ProFormSwitch,
   ProFormCheckbox,
+  ProFormRadio,
   ProFormDateRangePicker,
 };
 
