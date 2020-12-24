@@ -1,12 +1,14 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useState } from 'react';
 import { Form } from 'antd';
 import { FormProps, FormInstance } from 'antd/lib/form';
+import { ButtonProps } from 'antd/lib/button';
 
 import Submitter, { SubmitterProps } from '../Submitter';
 import ProFormGroup from '../Group';
 
 export interface ProFormProps extends FormProps {
   form?: FormInstance<any>;
+  onFinish?: (formData: Record<string, any>) => Promise<boolean | void>;
   submitter?: SubmitterProps | false;
 }
 
@@ -17,13 +19,14 @@ const ProForm: FunctionComponent<ProFormProps> & {
   const { form: useForm, submitter, children, onFinish, ...formProps } = props;
 
   const [form] = Form.useForm();
+  const [loading, setLoading] = useState<ButtonProps['loading']>(false);
 
   const submitterProps: SubmitterProps =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
 
   const submitNode =
     submitter === false ? undefined : (
-      <Submitter {...submitterProps} form={useForm || form} />
+      <Submitter {...submitterProps} loading={loading} form={useForm || form} />
     );
 
   return (
@@ -31,8 +34,14 @@ const ProForm: FunctionComponent<ProFormProps> & {
       <Form
         form={useForm || form}
         {...formProps}
-        onFinish={(values) => {
-          onFinish?.(values);
+        onFinish={async (values) => {
+          if (!onFinish) return;
+
+          setLoading({
+            delay: 100,
+          });
+          await onFinish(values);
+          setLoading(false);
         }}
       >
         {children}

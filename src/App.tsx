@@ -55,7 +55,7 @@ const App = () => {
         <ProForm
           style={{ width: '50%' }}
           initialValues={{ input: 'input' }}
-          onFinish={(values) => {
+          onFinish={async (values) => {
             console.log(values);
           }}
         >
