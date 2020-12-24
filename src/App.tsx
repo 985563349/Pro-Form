@@ -1,4 +1,4 @@
-import { Button } from 'antd';
+import { Button, Space } from 'antd';
 
 import ProForm, {
   ProFormText,
@@ -11,6 +11,17 @@ import ProForm, {
 import './App.css';
 
 const App = () => {
+  const [form] = ProForm.useForm();
+
+  const handleSubmit = async () => {
+    const values = await form.validateFields();
+    console.log(values);
+  };
+
+  const handleReset = () => {
+    form.resetFields();
+  };
+
   return (
     <div className="app">
       <section className="module">
@@ -56,7 +67,11 @@ const App = () => {
       <section className="module">
         <h1 className="module__title">Verify Form</h1>
 
-        <ProForm style={{ width: '50%' }}>
+        <ProForm
+          style={{ width: '50%' }}
+          form={form}
+          initialValues={{ input: 'input' }}
+        >
           <ProFormText
             label="input"
             name="input"
@@ -71,6 +86,7 @@ const App = () => {
             ]}
             rules={[{ required: true }]}
           />
+          {/* TODO: 添加校验 */}
           <ProFormCheckbox
             label="checkbox"
             name="checkbox"
@@ -80,19 +96,18 @@ const App = () => {
           </ProFormCheckbox>
 
           {/*
-            TODO: 优化options配置、添加grid布局配置
+            TODO: 添加grid布局配置
           */}
           <ProFormCheckbox.Group
             label="checkboxGroup"
-            fieldProps={{
-              options: [
-                { label: 'checkbox0', value: 0 },
-                { label: 'checkbox1', value: 1 },
-                { label: 'checkbox1', value: 2 },
-                { label: 'checkbox1', value: 3 },
-                { label: 'checkbox1', value: 4 },
-              ],
-            }}
+            name="checkboxGroup"
+            options={[
+              { label: 'checkbox0', value: 0 },
+              { label: 'checkbox1', value: 1 },
+              { label: 'checkbox1', value: 2 },
+              { label: 'checkbox1', value: 3 },
+              { label: 'checkbox1', value: 4 },
+            ]}
             rules={[{ required: true }]}
           />
           <ProFormSwitch
@@ -105,6 +120,13 @@ const App = () => {
             name="time"
             rules={[{ required: true }]}
           />
+
+          <Space>
+            <Button type="primary" htmlType="submit" onClick={handleSubmit}>
+              submit
+            </Button>
+            <Button onClick={handleReset}>reset</Button>
+          </Space>
         </ProForm>
       </section>
     </div>

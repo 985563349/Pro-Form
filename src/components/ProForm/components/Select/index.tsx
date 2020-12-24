@@ -9,7 +9,7 @@ type ProFormSelectEventProps = Pick<SelectProps<any>, 'onChange'>;
 export interface ProFormSelectProps
   extends ProFormItemProps,
     ProFormSelectEventProps {
-  options: Omit<OptionProps, 'children'>[];
+  options?: Omit<OptionProps, 'children'>[];
   showSearch?: boolean;
   optionFilterProp?: string;
   placeholder?: string;
