@@ -13,8 +13,8 @@ type ProFormGroupColProps = Map<
 >;
 
 export interface ProFormGroupProps extends ProFormGroupColProps {
-  gutter?: number;
   title?: string;
+  gutter?: number;
 }
 
 const ProFormGroup: FunctionComponent<ProFormGroupProps> = (props) => {

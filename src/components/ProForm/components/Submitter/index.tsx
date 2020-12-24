@@ -4,14 +4,13 @@ import { FormInstance } from 'antd/lib/form';
 import { ButtonProps } from 'antd/lib/button';
 
 export interface SubmitterProps {
-  loading?: ButtonProps['loading'];
   submitText?: React.ReactNode;
   resetText?: React.ReactNode;
 }
 
-const Submitter: FunctionComponent<SubmitterProps & { form: FormInstance }> = (
-  props
-) => {
+const Submitter: FunctionComponent<
+  SubmitterProps & { form: FormInstance; loading?: ButtonProps['loading'] }
+> = (props) => {
   const { form, loading, submitText = 'submit', resetText = 'reset' } = props;
 
   return (

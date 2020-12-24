@@ -1,13 +1,12 @@
 import { FunctionComponent, useState } from 'react';
 import { Form } from 'antd';
-import { FormProps, FormInstance } from 'antd/lib/form';
+import { FormProps } from 'antd/lib/form';
 import { ButtonProps } from 'antd/lib/button';
 
 import Submitter, { SubmitterProps } from '../Submitter';
 import ProFormGroup from '../Group';
 
 export interface ProFormProps extends FormProps {
-  form?: FormInstance<any>;
   onFinish?: (formData: Record<string, any>) => Promise<boolean | void>;
   submitter?: SubmitterProps | false;
 }
