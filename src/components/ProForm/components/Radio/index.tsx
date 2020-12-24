@@ -12,7 +12,7 @@ const ProFormRadio: FunctionComponent<ProFormRadioProps> & {
   const { children, ...formProps } = props;
 
   return (
-    <ProFormItem {...formProps}>
+    <ProFormItem {...formProps} valuePropName="checked">
       <Radio>{children}</Radio>
     </ProFormItem>
   );

@@ -73,7 +73,6 @@ const App = () => {
             ]}
             rules={[{ required: true }]}
           />
-          {/* TODO: 添加校验 */}
           <ProFormCheckbox
             label="checkbox"
             name="checkbox"
@@ -81,9 +80,9 @@ const App = () => {
           >
             checkbox
           </ProFormCheckbox>
-          {/* <ProFormRadio label="radio" name="radio" rules={[{ required: true }]}>
+          <ProFormRadio label="radio" name="radio" rules={[{ required: true }]}>
             radio
-          </ProFormRadio> */}
+          </ProFormRadio>
           <ProFormRadio.Group
             label="radioGroup"
             name="radioGroup"
