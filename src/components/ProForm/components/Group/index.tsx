@@ -2,6 +2,8 @@ import React, { FunctionComponent } from 'react';
 import { Col, Row } from 'antd';
 import { ColProps } from 'antd/lib/col';
 
+import './index.css';
+
 type Map<T> = {
   [P in keyof T]: T[P] | T[P][];
 };
@@ -12,10 +14,11 @@ type ProFormGroupColProps = Map<
 
 export interface ProFormGroupProps extends ProFormGroupColProps {
   gutter?: number;
+  title?: string;
 }
 
 const ProFormGroup: FunctionComponent<ProFormGroupProps> = (props) => {
-  const { gutter, span, xs, sm, md, lg, xl, xxl, children } = props;
+  const { gutter, span, xs, sm, md, lg, xl, xxl, title, children } = props;
 
   const isArray = Array.isArray;
   const length = React.Children.count(children);
@@ -33,6 +36,8 @@ const ProFormGroup: FunctionComponent<ProFormGroupProps> = (props) => {
 
   return (
     <div className="pro-form-group">
+      {title && <div className="pro-form-group__title">{title}</div>}
+
       <Row gutter={gutter}>
         {React.Children.map(children, (Child, index) =>
           Child ? (

@@ -1,0 +1,12 @@
+.app {
+  padding: 0 30px;
+}
+
+.module {
+  padding: 30px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.module__title {
+  margin-bottom: 24px;
+}
