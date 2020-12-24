@@ -4,22 +4,38 @@ import { SelectProps, OptionProps } from 'antd/lib/select';
 
 import ProFormItem, { ProFormItemProps } from '../FormItem';
 
-type ProFormSelectEmitProps = Pick<SelectProps<any>, 'onChange'>;
+type ProFormSelectEventProps = Pick<SelectProps<any>, 'onChange'>;
 
 export interface ProFormSelectProps
   extends ProFormItemProps,
-    ProFormSelectEmitProps {
+    ProFormSelectEventProps {
   options: Omit<OptionProps, 'children'>[];
+  showSearch?: boolean;
+  optionFilterProp?: string;
   placeholder?: string;
   fieldProps?: SelectProps<any>;
 }
 
 const ProFormSelect: FunctionComponent<ProFormSelectProps> = (props) => {
-  const { options, placeholder, fieldProps, onChange, ...formProps } = props;
+  const {
+    options,
+    placeholder,
+    showSearch,
+    optionFilterProp,
+    fieldProps,
+    onChange,
+    ...formProps
+  } = props;
 
   return (
     <ProFormItem {...formProps}>
-      <Select {...fieldProps} placeholder={placeholder} onChange={onChange}>
+      <Select
+        {...fieldProps}
+        showSearch={showSearch}
+        optionFilterProp={optionFilterProp}
+        placeholder={placeholder}
+        onChange={onChange}
+      >
         {options?.map(({ label, value, ...props }) => (
           <Select.Option {...props} key={value} value={value}>
             {label}
@@ -32,6 +48,7 @@ const ProFormSelect: FunctionComponent<ProFormSelectProps> = (props) => {
 
 ProFormSelect.defaultProps = {
   placeholder: '请选择',
+  optionFilterProp: 'children',
 };
 
 export default ProFormSelect;

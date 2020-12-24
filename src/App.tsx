@@ -37,6 +37,7 @@ const App = () => {
             <ProFormSelect
               label="gender"
               name="gender"
+              showSearch
               options={[
                 {
                   label: 'male',
