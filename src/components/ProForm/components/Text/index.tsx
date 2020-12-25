@@ -1,34 +1,7 @@
-import { FunctionComponent } from 'react';
-import { Input } from 'antd';
-import { InputProps } from 'antd/lib/input';
+import ProFormText from './Text';
 
-import ProFormItem, { ProFormItemProps } from '../FormItem';
-import ProFormPassword from './Password';
-import ProFormTextArea from './Area';
-
-export interface ProFormTextProps extends ProFormItemProps {
-  placeholder?: string;
-  fieldProps?: InputProps;
-}
-
-const ProFormText: FunctionComponent<ProFormTextProps> & {
-  Password: typeof ProFormPassword;
-  TextArea: typeof ProFormTextArea;
-} = (props) => {
-  const { placeholder, fieldProps, ...formProps } = props;
-
-  return (
-    <ProFormItem {...formProps}>
-      <Input {...fieldProps} placeholder={placeholder} />
-    </ProFormItem>
-  );
-};
-
-ProFormText.defaultProps = {
-  placeholder: '请输入',
-};
-
-ProFormText.Password = ProFormPassword;
-ProFormText.TextArea = ProFormTextArea;
+export type { ProFormTextProps } from './Text';
+export type { ProFormPasswordProps } from './Password';
+export type { ProFormTextAreaProps } from './TextArea';
 
 export default ProFormText;

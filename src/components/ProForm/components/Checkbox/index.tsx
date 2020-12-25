@@ -1,26 +1,6 @@
-import { FunctionComponent } from 'react';
-import { Checkbox } from 'antd';
-import { CheckboxProps } from 'antd/lib/checkbox';
+import ProFormCheckbox from './Checkbox';
 
-import ProFormItem, { ProFormItemProps } from '../FormItem';
-import ProFormCheckboxGroup from '../CheckboxGroup';
-
-export interface ProFormCheckboxProps extends ProFormItemProps {
-  fieldProps?: CheckboxProps;
-}
-
-const ProFormCheckbox: FunctionComponent<ProFormCheckboxProps> & {
-  Group: typeof ProFormCheckboxGroup;
-} = (props) => {
-  const { children, fieldProps, ...formProps } = props;
-
-  return (
-    <ProFormItem {...formProps} valuePropName="checked">
-      <Checkbox {...fieldProps} children={children} />
-    </ProFormItem>
-  );
-};
-
-ProFormCheckbox.Group = ProFormCheckboxGroup;
+export type { ProFormCheckboxProps } from './Checkbox';
+export type { ProFormCheckboxGroupProps } from './CheckboxGroup';
 
 export default ProFormCheckbox;

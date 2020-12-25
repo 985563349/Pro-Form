@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Col, Row } from 'antd';
 import { ColProps } from 'antd/lib/col';
 
-import './index.css';
+import './style/index.css';
 
 type Map<T> = {
   [P in keyof T]: T[P] | T[P][];

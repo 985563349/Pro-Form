@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 import { Input } from 'antd';
 import { PasswordProps } from 'antd/lib/input';
 
-import ProFormItem, { ProFormItemProps } from '../FormItem';
+import ProFormItem, { ProFormItemProps } from '../Form/FormItem';
 
 const { Password } = Input;
 

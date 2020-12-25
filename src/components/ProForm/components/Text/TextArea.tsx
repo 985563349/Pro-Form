@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 import { Input } from 'antd';
 import { TextAreaProps } from 'antd/lib/input';
 
-import ProFormItem, { ProFormItemProps } from '../FormItem';
+import ProFormItem, { ProFormItemProps } from '../Form/FormItem';
 
 const { TextArea } = Input;
 

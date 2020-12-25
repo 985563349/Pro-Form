@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 import { Checkbox } from 'antd';
 import { CheckboxGroupProps } from 'antd/lib/checkbox';
 
-import ProFormItem, { ProFormItemProps } from '../FormItem';
+import ProFormItem, { ProFormItemProps } from '../Form/FormItem';
 
 export interface ProFormCheckboxGroupProps extends ProFormItemProps {
   options?: CheckboxGroupProps['options'];

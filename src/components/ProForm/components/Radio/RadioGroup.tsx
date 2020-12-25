@@ -2,7 +2,7 @@ import { Radio } from 'antd';
 import { FunctionComponent } from 'react';
 import { RadioGroupProps } from 'antd/lib/radio';
 
-import ProFormItem, { ProFormItemProps } from '../FormItem';
+import ProFormItem, { ProFormItemProps } from '../Form/FormItem';
 
 export interface ProFormRadioGroupProps extends ProFormItemProps {
   optionType?: RadioGroupProps['optionType'];
