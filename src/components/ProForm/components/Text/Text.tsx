@@ -6,8 +6,12 @@ import ProFormItem, { ProFormItemProps } from '../Form/FormItem';
 import ProFormPassword from './Password';
 import ProFormTextArea from './TextArea';
 
-export interface ProFormTextProps extends ProFormItemProps {
-  placeholder?: string;
+export interface ProFormTextProps
+  extends Pick<
+      InputProps,
+      'allowClear' | 'placeholder' | 'onChange' | 'onPressEnter'
+    >,
+    ProFormItemProps {
   fieldProps?: InputProps;
 }
 
@@ -15,11 +19,24 @@ const ProFormText: FunctionComponent<ProFormTextProps> & {
   Password: typeof ProFormPassword;
   TextArea: typeof ProFormTextArea;
 } = (props) => {
-  const { placeholder, fieldProps, ...formProps } = props;
+  const {
+    allowClear,
+    placeholder,
+    fieldProps,
+    onChange,
+    onPressEnter,
+    ...formProps
+  } = props;
 
   return (
     <ProFormItem {...formProps}>
-      <Input {...fieldProps} placeholder={placeholder} />
+      <Input
+        {...fieldProps}
+        allowClear={allowClear}
+        placeholder={placeholder}
+        onChange={onChange}
+        onPressEnter={onPressEnter}
+      />
     </ProFormItem>
   );
 };

@@ -6,19 +6,49 @@ import ProFormItem, { ProFormItemProps } from '../Form/FormItem';
 
 const { TextArea } = Input;
 
-export interface ProFormTextAreaProps extends ProFormItemProps {
-  placeholder?: string;
+export interface ProFormTextAreaProps
+  extends Pick<
+      TextAreaProps,
+      | 'allowClear'
+      | 'autoSize'
+      | 'showCount'
+      | 'placeholder'
+      | 'onChange'
+      | 'onPressEnter'
+    >,
+    ProFormItemProps {
   fieldProps?: TextAreaProps;
 }
 
 const ProFormTextArea: FunctionComponent<ProFormTextAreaProps> = (props) => {
-  const { placeholder, fieldProps, ...formProps } = props;
+  const {
+    allowClear,
+    autoSize,
+    showCount,
+    placeholder,
+    fieldProps,
+    onChange,
+    onPressEnter,
+    ...formProps
+  } = props;
 
   return (
     <ProFormItem {...formProps}>
-      <TextArea {...fieldProps} placeholder={placeholder} />
+      <TextArea
+        {...fieldProps}
+        allowClear={allowClear}
+        autoSize={autoSize}
+        showCount={showCount}
+        placeholder={placeholder}
+        onChange={onChange}
+        onPressEnter={onPressEnter}
+      />
     </ProFormItem>
   );
+};
+
+ProFormTextArea.defaultProps = {
+  placeholder: '请输入',
 };
 
 export default ProFormTextArea;
