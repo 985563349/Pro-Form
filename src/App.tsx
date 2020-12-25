@@ -33,6 +33,7 @@ const App = () => {
             <ProFormSelect
               label="gender"
               name="gender"
+              allowClear
               showSearch
               options={[
                 {
