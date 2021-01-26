@@ -4,35 +4,54 @@ import { ColProps } from 'antd/lib/col';
 
 import './style/index.css';
 
-type Map<T> = {
+type ProFormGroupLayoutMap<T> = {
   [P in keyof T]: T[P] | T[P][];
 };
 
-type ProFormGroupColProps = Map<
-  Pick<ColProps, 'span' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'>
+type ColPropsPick = Pick<
+  ColProps,
+  'span' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 >;
 
-export interface ProFormGroupProps extends ProFormGroupColProps {
+type ProFormGroupLayoutProps = ProFormGroupLayoutMap<ColPropsPick>;
+
+export interface ProFormGroupProps extends ProFormGroupLayoutProps {
   title?: string;
   gutter?: number;
 }
 
+const genLayoutProps = (props: ProFormGroupLayoutProps, length: number) => {
+  const layoutProps: ProFormGroupLayoutProps = {};
+  const keys: Array<keyof ProFormGroupLayoutProps> = [
+    'span',
+    'xs',
+    'sm',
+    'md',
+    'lg',
+    'xl',
+    'xxl',
+  ];
+
+  keys.forEach((key) => {
+    const current = props[key];
+    layoutProps[key] = Array.isArray(current)
+      ? current
+      : new Array(length).fill(current);
+  });
+
+  return (index: number) => {
+    const colProps: ColPropsPick = {};
+    keys.forEach((key) => {
+      colProps[key] = (layoutProps[key] as any[])[index];
+    });
+    return colProps;
+  };
+};
+
 const ProFormGroup: FunctionComponent<ProFormGroupProps> = (props) => {
-  const { gutter, span, xs, sm, md, lg, xl, xxl, title, children } = props;
-
-  const isArray = Array.isArray;
+  const { gutter, title, children } = props;
   const length = React.Children.count(children);
-
-  // FIXME: 我也不知道这是什么鬼，等后续优化吧。
-  const [colSpan, colXs, colSm, colMd, colLg, colXl, colXxl] = [
-    span,
-    xs,
-    sm,
-    md,
-    lg,
-    xl,
-    xxl,
-  ].map((value) => (isArray(value) ? value : new Array(length).fill(value)));
+  const getLayoutProps = genLayoutProps(props, length);
 
   return (
     <div className="pro-form-group">
@@ -40,19 +59,7 @@ const ProFormGroup: FunctionComponent<ProFormGroupProps> = (props) => {
 
       <Row gutter={gutter}>
         {React.Children.map(children, (Child, index) =>
-          Child ? (
-            <Col
-              span={colSpan[index]}
-              xs={colXs[index]}
-              sm={colSm[index]}
-              md={colMd[index]}
-              lg={colLg[index]}
-              xl={colXl[index]}
-              xxl={colXxl[index]}
-            >
-              {Child}
-            </Col>
-          ) : null
+          Child ? <Col {...getLayoutProps(index)}>{Child}</Col> : null
         )}
       </Row>
     </div>
