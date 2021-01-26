@@ -123,12 +123,22 @@ const App = () => {
             optionType="button"
             rules={[{ required: true }]}
           />
-          {/*
-            TODO: 添加grid布局配置
-          */}
           <ProFormCheckbox.Group
             label="checkboxGroup"
             name="checkboxGroup"
+            options={[
+              { label: 'checkbox0', value: 0 },
+              { label: 'checkbox1', value: 1 },
+              { label: 'checkbox1', value: 2 },
+              { label: 'checkbox1', value: 3 },
+              { label: 'checkbox1', value: 4 },
+            ]}
+            rules={[{ required: true }]}
+          />
+          <ProFormCheckbox.Group
+            label="checkboxGridGroup"
+            name="checkboxGridGroup"
+            grid={{ span: 6 }}
             options={[
               { label: 'checkbox0', value: 0 },
               { label: 'checkbox1', value: 1 },
