@@ -10,16 +10,18 @@ import ProForm, {
 
 import './App.css';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div className="app">
       <section className="module">
         <h1 className="module__title">Basic Form</h1>
 
         <ProForm style={{ width: '50%' }}>
-          <ProFormText label="email" name="email" />
-          <ProFormText.Password label="password" name="password" />
-          <ProFormCheckbox name="remember">remember me</ProFormCheckbox>
+          <ProFormText label="email" name="email" disabled />
+          <ProFormText.Password label="password" name="password" disabled />
+          <ProFormCheckbox name="remember" disabled>
+            remember me
+          </ProFormCheckbox>
         </ProForm>
       </section>
 
@@ -28,9 +30,9 @@ const App = () => {
 
         <ProForm labelCol={{ span: 4 }}>
           <ProForm.Group span={8} gutter={20} title="group title">
-            <ProFormText label="username" name="username" />
-            <ProFormText label="password" name="password" />
-            <ProFormText label="email" name="email" />
+            <ProFormText label="username" name="username" disabled />
+            <ProFormText label="password" name="password" disabled />
+            <ProFormText label="email" name="email" disabled />
             <ProFormSelect
               label="gender"
               name="gender"
@@ -167,11 +169,16 @@ const App = () => {
             rules={[{ required: true }]}
           />
           <ProFormDateRangePicker
-            label="time"
-            name="time"
+            label="date"
+            name="date"
             rules={[{ required: true }]}
           />
-
+          <ProFormDateRangePicker
+            label="dateTime"
+            name="dateTime"
+            fieldProps={{ showTime: true }}
+            rules={[{ required: true }]}
+          />
           <ProFormText.TextArea
             label="textarea"
             name="textarea"

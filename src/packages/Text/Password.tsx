@@ -1,14 +1,15 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { Input } from 'antd';
-import { PasswordProps } from 'antd/lib/input';
-
-import ProFormItem, { ProFormItemProps } from '../Form/FormItem';
+import type { PasswordProps } from 'antd/lib/input';
+import ProFormItem from '../Form/FormItem';
+import type { ProFormItemProps } from '../Form/FormItem';
 
 const { Password } = Input;
 
 export interface ProFormPasswordProps
   extends Pick<
       PasswordProps,
+      | 'disabled'
       | 'allowClear'
       | 'visibilityToggle'
       | 'placeholder'
@@ -19,8 +20,9 @@ export interface ProFormPasswordProps
   fieldProps?: PasswordProps;
 }
 
-const ProFormPassword: FunctionComponent<ProFormPasswordProps> = (props) => {
+const ProFormPassword: React.FC<ProFormPasswordProps> = (props) => {
   const {
+    disabled,
     allowClear,
     visibilityToggle,
     placeholder,
@@ -34,6 +36,7 @@ const ProFormPassword: FunctionComponent<ProFormPasswordProps> = (props) => {
     <ProFormItem {...formProps}>
       <Password
         {...fieldProps}
+        disabled={disabled}
         allowClear={allowClear}
         visibilityToggle={visibilityToggle}
         placeholder={placeholder}

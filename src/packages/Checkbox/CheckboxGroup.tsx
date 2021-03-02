@@ -1,9 +1,10 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { Checkbox } from 'antd';
-import { CheckboxGroupProps } from 'antd/lib/checkbox';
-
-import ProFormItem, { ProFormItemProps } from '../Form/FormItem';
-import ProFormGroup, { ProFormGroupProps } from '../Form/FormGroup';
+import type { CheckboxGroupProps } from 'antd/lib/checkbox';
+import ProFormItem from '../Form/FormItem';
+import type { ProFormItemProps } from '../Form/FormItem';
+import ProFormGroup from '../Form/FormGroup';
+import type { ProFormGroupProps } from '../Form/FormGroup';
 
 export interface ProFormCheckboxGroupProps
   extends Pick<CheckboxGroupProps, 'options' | 'onChange'>,
@@ -12,14 +13,14 @@ export interface ProFormCheckboxGroupProps
   fieldProps?: CheckboxGroupProps;
 }
 
-const genCheckboxOptions = (options: ProFormCheckboxGroupProps['options']) =>
+type ProFormCheckboxGroupOptions = ProFormCheckboxGroupProps['options'];
+
+const genCheckboxOptions = (options: ProFormCheckboxGroupOptions) =>
   options?.map((option) =>
     typeof option === 'string' ? { label: option, value: option } : option
   );
 
-const ProFormCheckboxGroup: FunctionComponent<ProFormCheckboxGroupProps> = (
-  props
-) => {
+const ProFormCheckboxGroup: React.FC<ProFormCheckboxGroupProps> = (props) => {
   const { options, grid, fieldProps, ...formProps } = props;
   const checkboxGroupOptions = grid ? undefined : options;
 

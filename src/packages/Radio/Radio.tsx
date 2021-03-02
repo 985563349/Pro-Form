@@ -1,12 +1,12 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { Radio } from 'antd';
-
-import ProFormItem, { ProFormItemProps } from '../Form/FormItem';
+import ProFormItem from '../Form/FormItem';
+import type { ProFormItemProps } from '../Form/FormItem';
 import ProFormRadioGroup from './RadioGroup';
 
-export interface ProFormRadioProps extends ProFormItemProps {}
+export type ProFormRadioProps = ProFormItemProps;
 
-const ProFormRadio: FunctionComponent<ProFormRadioProps> & {
+const ProFormRadio: React.FC<ProFormRadioProps> & {
   Group: typeof ProFormRadioGroup;
 } = (props) => {
   const { children, ...formProps } = props;

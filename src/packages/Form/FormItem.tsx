@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { Form } from 'antd';
-import { FormItemProps } from 'antd/lib/form';
+import type { FormItemProps } from 'antd/lib/form';
 
-export interface ProFormItemProps extends FormItemProps {}
+export type ProFormItemProps = FormItemProps;
 
 const ProFormItem: FunctionComponent<ProFormItemProps> = (props) => {
   const { children } = props;

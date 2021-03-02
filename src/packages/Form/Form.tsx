@@ -1,9 +1,9 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { useState } from 'react';
 import { Form } from 'antd';
-import { FormProps } from 'antd/lib/form';
-import { ButtonProps } from 'antd/lib/button';
-
-import Submitter, { SubmitterProps } from '../Submitter';
+import type { FormProps } from 'antd/lib/form';
+import type { ButtonProps } from 'antd/lib/button';
+import Submitter from '../Submitter';
+import type { SubmitterProps } from '../Submitter';
 import ProFormGroup from './FormGroup';
 
 export interface ProFormProps extends FormProps {
@@ -11,7 +11,7 @@ export interface ProFormProps extends FormProps {
   submitter?: SubmitterProps | false;
 }
 
-const ProForm: FunctionComponent<ProFormProps> & {
+const ProForm: React.FC<ProFormProps> & {
   Group: typeof ProFormGroup;
   useForm: typeof Form.useForm;
 } = (props) => {

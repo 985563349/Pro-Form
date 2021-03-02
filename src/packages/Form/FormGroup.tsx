@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { Col, Row } from 'antd';
-import { ColProps } from 'antd/lib/col';
+import type { ColProps } from 'antd/lib/col';
 
 import './style/index.css';
 
@@ -48,8 +48,9 @@ const genLayoutProps = (props: ProFormGroupLayoutProps, length: number) => {
   };
 };
 
-const ProFormGroup: FunctionComponent<ProFormGroupProps> = (props) => {
+const ProFormGroup: React.FC<ProFormGroupProps> = (props) => {
   const { gutter, title, children } = props;
+
   const length = React.Children.count(children);
   const getLayoutProps = genLayoutProps(props, length);
 

@@ -1,14 +1,15 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { Input } from 'antd';
-import { TextAreaProps } from 'antd/lib/input';
-
-import ProFormItem, { ProFormItemProps } from '../Form/FormItem';
+import type { TextAreaProps } from 'antd/lib/input';
+import ProFormItem from '../Form/FormItem';
+import type { ProFormItemProps } from '../Form/FormItem';
 
 const { TextArea } = Input;
 
 export interface ProFormTextAreaProps
   extends Pick<
       TextAreaProps,
+      | 'disabled'
       | 'allowClear'
       | 'autoSize'
       | 'showCount'
@@ -20,8 +21,9 @@ export interface ProFormTextAreaProps
   fieldProps?: TextAreaProps;
 }
 
-const ProFormTextArea: FunctionComponent<ProFormTextAreaProps> = (props) => {
+const ProFormTextArea: React.FC<ProFormTextAreaProps> = (props) => {
   const {
+    disabled,
     allowClear,
     autoSize,
     showCount,
@@ -36,6 +38,7 @@ const ProFormTextArea: FunctionComponent<ProFormTextAreaProps> = (props) => {
     <ProFormItem {...formProps}>
       <TextArea
         {...fieldProps}
+        disabled={disabled}
         allowClear={allowClear}
         autoSize={autoSize}
         showCount={showCount}

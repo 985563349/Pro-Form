@@ -1,23 +1,24 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { DatePicker } from 'antd';
-import { RangePickerProps } from 'antd/lib/date-picker';
-
+import type { RangePickerProps } from 'antd/lib/date-picker';
 import ProFormItem, { ProFormItemProps } from '../Form/FormItem';
 
-export interface ProFormDateRangePickerProps extends ProFormItemProps {
+export interface ProFormDateRangePickerProps
+  extends Pick<RangePickerProps, 'disabled' | 'picker' | 'onChange'>,
+    ProFormItemProps {
   fieldProps?: RangePickerProps;
 }
 
 const { RangePicker } = DatePicker;
 
-const ProFormDateRangePicker: FunctionComponent<ProFormDateRangePickerProps> = (
+const ProFormDateRangePicker: React.FC<ProFormDateRangePickerProps> = (
   props
 ) => {
-  const { fieldProps, ...formProps } = props;
+  const { disabled, fieldProps, ...formProps } = props;
 
   return (
     <ProFormItem {...formProps}>
-      <RangePicker {...fieldProps} />
+      <RangePicker {...fieldProps} disabled={disabled} />
     </ProFormItem>
   );
 };
