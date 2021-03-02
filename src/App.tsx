@@ -1,3 +1,4 @@
+import React from 'react';
 import ProForm, {
   ProFormText,
   ProFormSelect,
@@ -5,7 +6,7 @@ import ProForm, {
   ProFormRadio,
   ProFormSwitch,
   ProFormDateRangePicker,
-} from './components/ProForm';
+} from './packages';
 
 import './App.css';
 
