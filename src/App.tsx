@@ -130,9 +130,21 @@ const App = () => {
             options={[
               { label: 'checkbox0', value: 0 },
               { label: 'checkbox1', value: 1 },
-              { label: 'checkbox1', value: 2 },
-              { label: 'checkbox1', value: 3 },
-              { label: 'checkbox1', value: 4 },
+              { label: 'checkbox2', value: 2 },
+              { label: 'checkbox3', value: 3 },
+              { label: 'checkbox4', value: 4 },
+            ]}
+            rules={[{ required: true }]}
+          />
+          <ProFormCheckbox.Group
+            label="checkboxGroupText"
+            name="checkboxGroup"
+            options={[
+              'checkbox0',
+              'checkbox1',
+              'checkbox2',
+              'checkbox3',
+              'checkbox4',
             ]}
             rules={[{ required: true }]}
           />
@@ -143,9 +155,9 @@ const App = () => {
             options={[
               { label: 'checkbox0', value: 0 },
               { label: 'checkbox1', value: 1 },
-              { label: 'checkbox1', value: 2 },
-              { label: 'checkbox1', value: 3 },
-              { label: 'checkbox1', value: 4 },
+              { label: 'checkbox2', value: 2 },
+              { label: 'checkbox3', value: 3 },
+              { label: 'checkbox4', value: 4 },
             ]}
             rules={[{ required: true }]}
           />

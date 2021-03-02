@@ -12,23 +12,20 @@ export interface ProFormCheckboxGroupProps
   fieldProps?: CheckboxGroupProps;
 }
 
+const genCheckboxOptions = (options: ProFormCheckboxGroupProps['options']) =>
+  options?.map((option) =>
+    typeof option === 'string' ? { label: option, value: option } : option
+  );
+
 const ProFormCheckboxGroup: FunctionComponent<ProFormCheckboxGroupProps> = (
   props
 ) => {
   const { options, grid, fieldProps, ...formProps } = props;
-  const checkboxOptions = grid ? undefined : options;
-
-  const getOptions = () =>
-    options?.map((option) => {
-      if (typeof option === 'string') {
-        return { label: option, value: option };
-      }
-      return option;
-    });
+  const checkboxGroupOptions = grid ? undefined : options;
 
   const GridCheckbox = grid ? (
     <ProFormGroup {...grid}>
-      {getOptions()?.map(({ label, value, ...rest }) => (
+      {genCheckboxOptions(options)?.map(({ label, value, ...rest }) => (
         <Checkbox key={value.toString()} value={value} {...rest}>
           {label}
         </Checkbox>
@@ -38,7 +35,7 @@ const ProFormCheckboxGroup: FunctionComponent<ProFormCheckboxGroupProps> = (
 
   return (
     <ProFormItem {...formProps}>
-      <Checkbox.Group {...fieldProps} options={checkboxOptions}>
+      <Checkbox.Group {...fieldProps} options={checkboxGroupOptions}>
         {GridCheckbox}
       </Checkbox.Group>
     </ProFormItem>
