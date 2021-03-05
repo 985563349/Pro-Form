@@ -11,6 +11,7 @@ export interface ProFormTextAreaProps
       TextAreaProps,
       | 'disabled'
       | 'allowClear'
+      | 'rows'
       | 'autoSize'
       | 'showCount'
       | 'placeholder'
@@ -25,6 +26,7 @@ const ProFormTextArea: React.FC<ProFormTextAreaProps> = (props) => {
   const {
     disabled,
     allowClear,
+    rows,
     autoSize,
     showCount,
     placeholder,
@@ -40,6 +42,7 @@ const ProFormTextArea: React.FC<ProFormTextAreaProps> = (props) => {
         {...fieldProps}
         disabled={disabled}
         allowClear={allowClear}
+        rows={rows}
         autoSize={autoSize}
         showCount={showCount}
         placeholder={placeholder}

@@ -182,6 +182,8 @@ const App: React.FC = () => {
           <ProFormText.TextArea
             label="textarea"
             name="textarea"
+            rows={3}
+            autoSize={{ minRows: 3, maxRows: 6 }}
             rules={[{ required: true }]}
           />
         </ProForm>
