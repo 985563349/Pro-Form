@@ -24,10 +24,10 @@ ProForm 操作按钮的配置。
 | ---- | ------------ | --------------- | -------- |
 | title | 组标题 | string | - |
 | gutter | 栅格间隔 | number | - |
-| span | 栅格占位格数，传入数组时可单独控制每一列 | number \| number[] | 'submit' |
-| xs | `屏幕 < 576px`栅格占位格数，传入数组时可单独控制每一列 | number \| object[] \| number[] \| object[]| 'submit' |
-| sm | `屏幕 ≥ 576px`栅格占位格数，传入数组时可单独控制每一列 | number \| object[] \| number[] \| object[]| 'submit' |
-| md | `屏幕 ≥ 768px`栅格占位格数，传入数组时可单独控制每一列 | number \| object[] \| number[] \| object[]| 'submit' |
-| lg | `屏幕 ≥ 992px`栅格占位格数，传入数组时可单独控制每一列 | number \| object[] \| number[] \| object[]| 'submit' |
-| xs | `屏幕 ≥ 1200px`栅格占位格数，传入数组时可单独控制每一列 | number \| object[] \| number[] \| object[]| 'submit' |
-| xxl | `屏幕 ≥ 1600px`栅格占位格数，传入数组时可单独控制每一列 | number \| object[] \| number[] \| object[]| 'submit' |
+| span | 栅格占位格数，传入数组时可单独控制每一列 | number \| number[] | - |
+| xs | `屏幕 < 576px`栅格占位格数，传入数组时可单独控制每一列 | number \| object \| number[] \| object[]| - |
+| sm | `屏幕 ≥ 576px`栅格占位格数，传入数组时可单独控制每一列 | number \| object \| number[] \| object[]| - |
+| md | `屏幕 ≥ 768px`栅格占位格数，传入数组时可单独控制每一列 | number \| object \| number[] \| object[]| - |
+| lg | `屏幕 ≥ 992px`栅格占位格数，传入数组时可单独控制每一列 | number \| object \| number[] \| object[]| - |
+| xs | `屏幕 ≥ 1200px`栅格占位格数，传入数组时可单独控制每一列 | number \| object \| number[] \| object[]| - |
+| xxl | `屏幕 ≥ 1600px`栅格占位格数，传入数组时可单独控制每一列 | number \| object \| number[] \| object[]| - |

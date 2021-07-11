@@ -4,4 +4,4 @@
 
 什么是 Pro Form？
 
-Pro Form = antd form + grid layout
+Pro Form = Antd Form + Grid Layout
